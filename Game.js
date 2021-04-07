@@ -59,8 +59,24 @@ class Game{
                        
                      if(index === player.index){
                          
-                       //add code to display the player's name on the respective basket.
+                        stroke(10);
+                        fill("red");
+                        ellipse(x,y,60,60);
+                        fruit[index - 1].shapeColor = "red";
+                        camera.position.x = displayWidth/2;
+                        camera.position.y = fruit[index-1].y;
 
+                        for(var plr in allPlayers){
+                            //add 1 to the index for every loop
+                            index = index + 1 ;
+
+                            //position the fruits a little away from each other in x direction
+                            x = x + 200;
+                            //use data form the database to display the fruits in y direction
+                            y = displayHeight - allPlayers[plr].distance;
+                            fruit[index-1].x = x;
+                            fruit[index-1].y = y;
+                        }
                          
                      }
                     

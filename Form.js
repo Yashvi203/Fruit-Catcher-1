@@ -14,14 +14,14 @@ class Form{
     }
     display() {
         this.title.html("FRUIT CATCHER");
-        this.title.position(350, 50);
+        this.title.position(650, 50);
         this.title.style('font-size', '70px');
         this.title.style('color', 'skyblue');
-        this.input.position(550,400);
+        this.input.position(750,400);
         this.input.style('width', '200px');
         this.input.style('height', '20px');
         this.input.style('background', 'lavender');
-        this.button.position(560,500);
+        this.button.position(660,500);
         this.button.style('width', '200px');
         this.button.style('height', '40px');
         this.button.style('background', 'lightpink');
@@ -45,8 +45,15 @@ class Form{
         });
 
         this.reset.mousePressed(() => {
-            //add code to reset the values of the gameState and the playerCount nodes to 0 in the database
+        
+        var playerInfoRef = database.ref('players');
+        playerInfoRef.remove();
+
+        player.updateCount(0);
+        game.update(0);
+
         });
 
+        
     }
 }
